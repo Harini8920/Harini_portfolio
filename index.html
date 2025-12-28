@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harini Thandra | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        :root {
+            --dark-bg: #121212;
+            --dark-card: #1e1e1e;
+            --dark-text: #ffffff;
+            --dark-subtle: #b0b0b0;
+            --accent: #4a6fa5;
+            --accent-light: #6b9bd2;
+            --gradient: linear-gradient(135deg, #121212 0%, #1a1a2e 50%, #16213e 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        
+        body {
+            background: var(--gradient);
+            color: var(--dark-text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: rgba(30, 30, 30, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(74, 111, 165, 0.3);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark-text);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-link {
+            color: var(--dark-subtle);
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            color: var(--accent);
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 40px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-text);
+        }
+        
+        .hero .subtitle {
+            font-size: 1.2rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+        
+        .location {
+            color: var(--dark-subtle);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .summary {
+            max-width: 700px;
+            margin: 1rem auto;
+            color: var(--dark-subtle);
+            font-size: 1rem;
+        }
+        
+        /* Main Content */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .card {
+            background: var(--dark-card);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .card-title {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent);
+        }
+        
+        /* Education */
+        .education-item {
+            margin-bottom: 1.5rem;
+        }
+        
+        .education-year {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+        
+        /* Skills */
+        .skills-list {
+            list-style: none;
+        }
+        
+        .skills-list li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .skills-list li:before {
+            content: "›";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Projects */
+        .project-item {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .project-item:last-child {
+            border-bottom: none;
+        }
+        
+        .project-title {
+            color: var(--dark-text);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-desc {
+            color: var(--dark-subtle);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .tag {
+            background: rgba(74, 111, 165, 0.2);
+            color: var(--accent-light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+        
+        /* Experience & Activities */
+        .activity-item {
+            margin-bottom: 1rem;
+        }
+        
+        .activity-title {
+            color: var(--dark-text);
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark-card);
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(74, 111, 165, 0.3);
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1rem 0;
+        }
+        
+        .footer-link {
+            color: var(--dark-subtle);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-link:hover {
+            color: var(--accent);
+        }
+        
+        .copyright {
+            color: var(--dark-subtle);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 0.8rem;
+            }
+            
+            .hero {
+                padding: 100px 0 30px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">Harini Thandra</a>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/harini-thandra-5315b53a3/" class="social-link" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="https://github.com/Harini8920" class="social-link" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://hackerrank.com/profile/harinithandra208" class="social-link" target="_blank">
+                    <i class="fab fa-hackerrank"></i>
+                </a>
+                <a href="https://leetcode.com/u/Harini_208/" class="social-link" target="_blank">
+                    <i class="fas fa-code"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Harini Thandra</h1>
+            <div class="subtitle">Computer Science Engineering Student</div>
+            <div class="location">Kakinada, Andhra Pradesh, India</div>
+            <p class="summary">
+                2nd-year B.Tech CSE student focused on improving technical skills through continuous learning and hands-on practice. 
+                Familiar with AI-assisted development tools and actively enhancing problem-solving abilities through projects and coding practice.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <div class="content-grid">
+            <!-- Left Column -->
+            <div>
+                <!-- Education -->
+                <div class="card">
+                    <h3 class="card-title">Education</h3>
+                    <div class="education-item">
+                        <div class="education-year">2024 – 2028</div>
+                        <h4>Bachelor of Technology (B.Tech) – Computer Science & Engineering</h4>
+                        <p>Pragati Engineering College, Andhra Pradesh</p>
+                    </div>
+                </div>
+
+                <!-- Projects -->
+                <div class="card">
+                    <h3 class="card-title">Projects</h3>
+                    
+                    <div class="project-item">
+                        <h4 class="project-title">Onion Storage Monitoring System using IoT Sensors</h4>
+                        <p class="project-desc">
+                            Team-based academic project focused on monitoring environmental conditions affecting onion storage. 
+                            Used IoT sensors to collect real-time data for reducing spoilage and improving storage efficiency.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">IoT</span>
+                            <span class="tag">Sensors</span>
+                            <span class="tag">Data Collection</span>
+                        </div>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--accent);">
+                            Presented at college technical event "STRIDES"
+                        </p>
+                    </div>
+                    
+                    <div class="project-item">
+                        <h4 class="project-title">Cashew Nut Ripeness & Quality Analysis using Python</h4>
+                        <p class="project-desc">
+                            Team project analyzing cashew nut ripeness and quality using Python. 
+                            Utilized AI tools to assist in data analysis and code understanding.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">AI Tools</span>
+                            <span class="tag">Data Analysis</span>
+                        </div>
+                        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--accent);">
+                            Presented at college technical event "STRIDES"
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div>
+                <!-- Technical Skills -->
+                <div class="card">
+                    <h3 class="card-title">Technical Skills</h3>
+                    <ul class="skills-list">
+                        <li>Python (Basic)</li>
+                        <li>C (Basic)</li>
+                        <li>Java (Basic)</li>
+                        <li>Internet of Things (IoT)</li>
+                        <li>AI-assisted development</li>
+                        <li>Jupyter Notebook</li>
+                        <li>Arduino & IoT Sensors</li>
+                        <li>VS Code</li>
+                        <li>AI Tools (for learning & debugging)</li>
+                    </ul>
+                </div>
+
+                <!-- Experience -->
+                <div class="card">
+                    <h3 class="card-title">Experience & Activities</h3>
+                    
+                    <div class="activity-item">
+                        <div class="activity-title">Student Coordinator – National Service Scheme (NSS)</div>
+                        <p style="color: var(--dark-subtle); font-size: 0.9rem;">
+                            Coordinated and participated in village awareness programs focused on waste management
+                        </p>
+                    </div>
+                    
+                    <div class="activity-item">
+                        <div class="activity-title">Student Coordinator – AR/VR Club</div>
+                        <p style="color: var(--dark-subtle); font-size: 0.9rem;">
+                            Supported faculty-guided technical activities and student engagement programs
+                        </p>
+                    </div>
+                    
+                    <div class="activity-item">
+                        <div class="activity-title">Hackathons & Events</div>
+                        <p style="color: var(--dark-subtle); font-size: 0.9rem;">
+                            • Participant – Amaravati Quantum Valley Hackathon<br>
+                            • Participant – Smart India Hackathon (SIH)
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Certifications -->
+                <div class="card">
+                    <h3 class="card-title">Certifications</h3>
+                    <ul class="skills-list">
+                        <li>LLM Young Developers Program (Completed)</li>
+                        <li>EY Skill Development Program (Completed)</li>
+                        <li>IBM SkillsBuild Learning (Completed)</li>
+                    </ul>
+                </div>
+
+                <!-- Languages -->
+                <div class="card">
+                    <h3 class="card-title">Languages</h3>
+                    <ul class="skills-list">
+                        <li>Telugu – Native</li>
+                        <li>English – Professional working proficiency</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <h3 style="color: var(--accent); margin-bottom: 1rem;">Contact</h3>
+            
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/harini-thandra-5315b53a3/" class="footer-link" target="_blank">
+                    LinkedIn
+                </a>
+                <a href="https://github.com/Harini8920" class="footer-link" target="_blank">
+                    GitHub
+                </a>
+                <a href="https://hackerrank.com/profile/harinithandra208" class="footer-link" target="_blank">
+                    HackerRank
+                </a>
+                <a href="https://leetcode.com/u/Harini_208/" class="footer-link" target="_blank">
+                    LeetCode
+                </a>
+            </div>
+            
+            <div class="copyright">
+                &copy; 2024 Harini Thandra. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add current year to copyright
+        document.addEventListener('DOMContentLoaded', () => {
+            const yearSpan = document.querySelector('.copyright');
+            if (yearSpan) {
+                yearSpan.textContent = yearSpan.textContent.replace('2024', new Date().getFullYear());
+            }
+        });
+    </script>
+</body>
+</html>
